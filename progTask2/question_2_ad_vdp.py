@@ -8,12 +8,10 @@ import matplotlib.pyplot as plt
 import adaptive_rk as ad
 
 global lmbd
-global Tau
 global n
 global y1
 global y2
 global mu
-Tau = 0.1
 y1=2
 y2=0
 mu=1.5
@@ -26,16 +24,13 @@ if __name__ == "__main__":
         mu = float(sys.argv[1])
 
     if len(sys.argv) >= 3:
-        Tau = float(sys.argv[2])
-
+        y1 = float(sys.argv[2])
     if len(sys.argv) >= 4:
-        y1 = float(sys.argv[3])
-    if len(sys.argv) >= 5:
-        y2 = float(sys.argv[4])
+        y2 = float(sys.argv[3])
 
     times, vals = ad.approximate(f=f,
                                  X0=np.array([y1, y2]),
-                                 T=[0.0, 1.97 * mu],
+                                 T=[0.0, 8 * mu],
                                  tau_max=0.5,
                                  tol=0.00001)
 
@@ -45,8 +40,8 @@ if __name__ == "__main__":
     plt.axis('equal')
     plt.legend()
 
-    plt.xlabel("Time t")
-    plt.ylabel("Estimated Value")
+    plt.xlabel("y1 estimate")
+    plt.ylabel("y2 estimate")
     plt.title("Addaptive Approximation for y1=" + str(y1) + \
             ", y2=" + str(y2) + \
             ", tol=" + str(0.00001) + \

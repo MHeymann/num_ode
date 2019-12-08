@@ -46,7 +46,7 @@ def approximate(T=[0.0, 1.0], X0=np.array([1.0]), f=f_test, tol=0.1,
             Z3 = rk_3step(Z, t, t+tau, f)
             Z4 = rk_4step(Z, t, t+tau, f)
             err = np.linalg.norm(Z3 - Z4)
-        print(tau)
+        #print(tau)
 
         # if we are still within time ranges, add to list
         if t + tau < t_final:

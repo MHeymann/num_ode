@@ -126,17 +126,53 @@ irregular.
 	\item[(c)]
 		As the values for the solutions tend to get very large in
 		absolute value, this report restricted values for $\mu$ to under
-		$8$. For the value of $\mu=8$, the phase graph was approximated
-		with the adaptive method.
+		$8$. For some small values of $\mu$, the entire phase graph was
+		approximated with the adaptive method.
+		\begin{figure}[H]
+			\includegraphics[scale=0.6]{adapt_vdp0}
+		\end{figure}
+		\begin{figure}[H]
+			\includegraphics[scale=0.6]{adapt_vdp2}
+		\end{figure}
+		\begin{figure}[H]
+			\includegraphics[scale=0.6]{adapt_vdp4}
+		\end{figure}
 		\begin{figure}[H]
 			\includegraphics[scale=0.6]{adapt_vdp8}
 		\end{figure}
+
+		For a fixed value of $\mu=2$, various starting values were used,
+		as graphed below:
+		\begin{figure}[H]
+			\includegraphics[scale=0.6]{start_2_01_0}
+		\end{figure}
+		\begin{figure}[H]
+			\includegraphics[scale=0.6]{start_2_15_0}
+		\end{figure}
+		\begin{figure}[H]
+			\includegraphics[scale=0.6]{start_2_25_0}
+		\end{figure}
+		\begin{figure}[H]
+			\includegraphics[scale=0.6]{start_2_0_10}
+		\end{figure}
+		Interestingly, the solution seems to quickly approach the $(2,
+		0)$ solution, rather than make a larger figure, as would be the
+		cased for an undamped oscillator.
+
 		The variation in the time step sizes is visualized below:
 		\begin{figure}[H]
 			\includegraphics[scale=0.6]{adapt_times}
 		\end{figure}
 
-		A log-log graph would not be appropriate here, as the local
-		error has no meaning in this context.
+		Finally, the number of time-steps taken for various values of
+		$\mu$ is given in the following graph:
+		\begin{figure}[H]
+			\includegraphics[scale=0.6]{Mu_to_steps}
+		\end{figure}
+
+		A log-log graph would not be appropriate here, as this is not a
+		reflection of the quality of the estimation:  different values
+		of $\mu$ yields fundamentally different graphs, which may or may
+		not require more steps to estimate. 
 \end{itemize}
 \end{document}
