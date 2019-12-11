@@ -1,6 +1,7 @@
 #! /usr/bin/python3
 import sys
 import numpy as np
+import math
 
 import implicit_runge_kutta as irk
 import matplotlib.pyplot as plt
@@ -8,9 +9,12 @@ import matplotlib.pyplot as plt
 global _A
 global _b
 
-_A = np.array([[0.5]])
+_A = np.array([
+    [0.25, 0.25 - (math.sqrt(3.0) / 6.0)],
+    [0.25 + (math.sqrt(3.0) / 6.0), 0.25]
+    ])
 
-_b = [1.0]
+_b = [0.5, 0.5]
 
 tau = 0.1
 

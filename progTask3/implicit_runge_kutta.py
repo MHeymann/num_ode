@@ -68,9 +68,9 @@ def implicit_rk_step(xj0, tj0, tj1, f, *args):
     return xj0 + (tj1 - tj0) * s
 
 def approximation(f, T=[0.0, 1.0], X0=np.array([1, 0]), tau=0.1, A=None, b=None):
-    if A == None:
+    if A is None:
         A = _A
-    if b == None:
+    if b is None:
         b = _b
     c = []
     for i in range(len(A)):
