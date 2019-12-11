@@ -92,7 +92,7 @@ if __name__ == "__main__":
     if len(sys.argv) >= 2:
         Tau = float(sys.argv[1])
     else:
-        Tau = 2 * math.pi / 100
+        Tau = 2 * math.pi / 7
 
     #times, vals = approximation(T=[0.0, 2 * math.pi], tau=Tau, A=[[0.5]], b=[1])
     times, vals = approximation(T=[0.0, 2 * math.pi], tau=Tau)
