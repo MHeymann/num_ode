@@ -23,16 +23,9 @@ if __name__ == "__main__":
     else:
         t_final = 1.0
 
-    times, vals = ap.approximation(ap.explicit_euler_step, \
-                                   T=[0.0, t_final], \
-                                   tau=Tau)
-
-    n = round(t_final/0.001)
-    sol_times = [0.001 * t for t in range(n)]
-    if not sol_times[-1] == t_final:
-        sol_times.append(t_final)
-    e = [math.exp(-1 * ap.lmbd * t) for t in sol_times]
-    plt.plot(sol_times, e, label='Solution')
+    times, vals = ap.approximation(ap.explicit_euler_step, T=[0.0, 1.0], tau=Tau)
+    e = [math.exp(-1 * ap.lmbd * t) for t in np.linspace(0,1,1000)]
+    plt.plot(np.linspace(0,1,1000), e, label='Solution')
     plt.plot(times, vals, label='Euler Approximation')
     plt.legend()
 
