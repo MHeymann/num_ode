@@ -3,7 +3,7 @@ import sys
 import math
 import numpy as np
 
-import implicit_gaus as ig
+import implicit_midpoint as im
 import matplotlib.pyplot as plt
 
 global k
@@ -38,7 +38,7 @@ if __name__ == "__main__":
         else:
             sol_val = [math.cos(math.sqrt(k) * t_final), \
                     -1 * math.sin(math.sqrt(k) * t_final)]
-        times, vals = ig.approximation(func_h, \
+        times, vals = im.approximation(func_h, \
                                        T=[0.0, t_final], \
                                        X0=np.array([1.0, 0]), \
                                        tau=tau)
@@ -48,16 +48,16 @@ if __name__ == "__main__":
             app_val = vals[-1]
         diffs.append(np.linalg.norm(app_val - sol_val))
 
-    plt.loglog(Tau, diffs, label='Implicit Gauss Approximation')
+    plt.loglog(Tau, diffs, label='Implicit midpoint Approximation')
     plt.grid()
 
     plt.xlabel("Stepsize")
     if local:
         plt.ylabel("Local Error")
-        plt.title("Implicit Gauss Approximation Local Error for k=" +
+        plt.title("Implicit Midpoint Approximation Local Error for k=" +
                 str(k))
     else:
         plt.ylabel("Global Error")
-        plt.title("Implicit Gauss Approximation Global Error for k=" +
+        plt.title("Implicit Midpoint Approximation Global Error for k=" +
                 str(k))
     plt.show()

@@ -12,14 +12,6 @@ _A = np.array([[0.5]])
 
 _b = [1.0]
 
-tau = 0.1
-
-def func_circ(t, xt):
-    return np.array([xt[1], -xt[0]])
-
-def func_e(t, xt):
-    return -5 * xt
-
 def approximation(f, T, X0, tau):
     return irk.approximation(f, \
                              T=T, \

@@ -10,29 +10,14 @@ A3 = np.array([
         [-1.0, 2.0, 0.0]
     ])
 b3 = np.array([1.0/6, 2.0/3, 1.0/6])
-c3 = np.array([
-    0.0,
-    1.0/2,
-    1.0])
 
-A4 = np.array([
+_A = np.array([
         [0.0, 0.0, 0.0, 0.0],
         [0.5, 0.0, 0.0, 0.0],
         [0.0, 0.5, 0.0, 0.0],
         [0.0, 0.0, 1.0, 0.0]
     ])
-b4 = np.array([1.0/6, 1.0/3, 1.0/3, 1.0/6])
-c4 = np.array([
-    0.0,
-    1.0/2,
-    1.0/2,
-    1.0])
-
-_A = None
-_b = None
-_c = None
-_n = None
-_f = None
+_b = np.array([1.0/6, 1.0/3, 1.0/3, 1.0/6])
 
 def f_test(t, xt):
     return -5 * xt
@@ -66,18 +51,17 @@ def runge_kutta_step(xj0, tj0, tj1, f, *args):
     # the actual step
     return xj0 + tau * sumk
 
-def runge_kutta(A, b, c, f=f_test, X0=np.array([1]), T=[0.0, 1.0], tau=0.1):
-    global _A
-    global _b
-    global _c
-    global _n
-    global _f
-
-    _A = A
-    _b = b
-    _c = c
-    _n = len(c)
-    _f = f
+def approximation(f, T=[0.0, 1.0], X0=np.array([1]), tau=0.1, A=None, b=None):
+    if A is None:
+        A = _A
+    if b is None:
+        b = _b
+    c = []
+    for i in range(len(A)):
+        s = 0
+        for j in range(len(A)):
+            s = s + A[i][j]
+        c.append(s)
 
     args = [A, b, c]
 

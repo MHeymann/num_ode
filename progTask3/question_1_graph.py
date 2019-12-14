@@ -5,14 +5,13 @@ import math
 import numpy as np
 import matplotlib.pyplot as plt
 
-import runge_kutta as rk
+import explicit_runge_kutta3 as rk3
+import explicit_runge_kutta4 as rk4
 
 global lmbd
 global Tau
-global n
 lmbd = 5.0
 Tau = 0.1
-n=3
 
 def f(t, xt):
     return -1 * lmbd * xt
@@ -26,20 +25,15 @@ if __name__ == "__main__":
 
     if len(sys.argv) >= 4:
         n = 4
-
-    if n == 3:
-        A = rk.A3
-        b = rk.b3
-        c = rk.c3
+        rk = rk4
     else:
-        A = rk.A4
-        b = rk.b4
-        c = rk.c4
+        n = 3
+        rk = rk3
 
-    times, vals = rk.runge_kutta(A, b, c, f=f,
-                                 X0=np.array([1]),
-                                 T=[0.0, 1.0],
-                                 tau=Tau)
+    times, vals = rk.approximation(f,
+                                   T=[0.0, 1.0],
+                                   X0=np.array([1]),
+                                   tau=Tau)
 
     e = [math.exp(-1 * lmbd * t) for t in np.linspace(0,1,1000)]
     plt.plot(np.linspace(0,1,1000), e, label='Solution')

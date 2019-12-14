@@ -10,25 +10,14 @@ from scipy.optimize import fsolve
 global _A
 global _b
 
-#_A = np.array([
-#    [0.25, 0.25 - (math.sqrt(3.0) / 6.0)],
-#    [0.25 + (math.sqrt(3.0) / 6.0), 0.25]
-#    ])
 _A = np.array([
     [5.0/36.0, 2.0/9 - (math.sqrt(15.0) / 15.0), 5.0/36 - (math.sqrt(15.0)/30.0)],
     [5.0/36.0 + (math.sqrt(15.0) / 24.0), 2.0/9.0,  5.0/36 - (math.sqrt(15.0)/24.0)],
     [5.0/36.0 + (math.sqrt(15.0) / 30.0), 2.0/9.0 +  (math.sqrt(15.0)/15.0),
         5.0/36.0]
     ])
-#_A = np.array([
-#    [0., 0.0],
-#    [0.5 , 0.5]
-#    ])
 
-#_b = [0.5, 0.5]
 _b = [5.0/18.0, 4.0/9.0, 5.0/18.0]
-
-tau = 0.1
 
 def circ_f(t, xt):
     return np.array([xt[1], -xt[0]])
