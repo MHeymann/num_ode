@@ -34,7 +34,7 @@
 	\item[(a)]
 		As before, the function $y = e^{- \lambda t}$ was approximated.
 
-		For stepsizes larger than $2/\lambda$, the explicit Euler method
+		For step-sizes larger than $2/\lambda$, the explicit Euler method
 		is not stable.  Indeed this is clearly demonstrated by the
 		following graphs, using the implementation from exercise $1$.
 		\begin{figure}[H]
@@ -48,16 +48,16 @@
 		Here the value has no limit, while the absolute value of the
 		approximation goes to infinity.
 
-		Using a much larger $\tau = 0.6$ as stepsize, we see get the
+		Using a much larger $\tau = 0.6$ as step-size, we see get the
 		following approximation using
 		the implicit midpoint method:
 		\begin{figure}[H]
 			\includegraphics[scale=0.6]{implicit_mid_06}
 		\end{figure}
 		While it cannot be considered a good approximation in itself, it
-		is noticable that the approximation is absolutely convergent to
+		is noticeable that the approximation is absolutely convergent to
 		$0$, even though our step size is larger than in the explicit
-		Euler case. For a stepsize of $\tau=0.2$, which is still
+		Euler case. For a step-size of $\tau=0.2$, which is still
 		relatively large, we get the following approximation:
 		\begin{figure}[H]
 			\includegraphics[scale=0.6]{implicit_mid_02}
@@ -77,28 +77,28 @@
 		It is a line with a gradient of about $2$, which confirms that
 		this is an order $2$ method.
 
-		Using $\tau = 0.6$ again as stepsize, we see get the
+		Using $\tau = 0.6$ again as step-size, we see get the
 		following approximation using
-		the implicit Gauss method:
+		the implicit Gau{\ss} method:
 		\begin{figure}[H]
 			\includegraphics[scale=0.6]{implicit_gauss_06}
 		\end{figure}
 		It is again
-		noticable that the approximation is absolutely convergent to
+		noticeable that the approximation is absolutely convergent to
 		$0$, even though our step size is larger than in the explicit
-		Euler case. For a stepsize of $\tau=0.2$, which is still
+		Euler case. For a step-size of $\tau=0.2$, which is still
 		relatively large, we get the following approximation:
 		\begin{figure}[H]
 			\includegraphics[scale=0.6]{implicit_gauss_02}
 		\end{figure}
-		The local error of the implicit Gauss
+		The local error of the implicit Gau{\ss}
 		method is shown in the following log-log graph:
 		\begin{figure}[H]
 			\includegraphics[scale=0.6]{implicit_gauss_local_loglog}
 		\end{figure}
 		The graph is a line with a gradient of about $5$, which is
 		consistent with an order $4$ method.  It should be noted that
-		for stepsizes less than $0.001$, the local error was calculated
+		for step-sizes less than $0.001$, the local error was calculated
 		as $0$.  This does not mean that there is no error, simply that
 		the error was smaller than the implementation can represent as a
 		floating point number.
@@ -108,7 +108,7 @@
 			\includegraphics[scale=0.6]{implicit_gauss_global_loglog}
 		\end{figure}
 		It is a line with a gradient of about $4$, which confirms that
-		this is an order $4$ method. For very small stepsizes, the error
+		this is an order $4$ method. For very small step-sizes, the error
 		seems to no longer descend along the same curve.  This is most
 		likely because of the additional error introduced by Newton's
 		method for approximating the $\mathbf{k}_i$'s in the implicit Runge-Kutta
@@ -232,14 +232,14 @@
 		\]
 		which is reversible.  So, from Theorem $4.28$, we expect an
 		implicit midpoint approximation to be an isometry for any
-		stepsize $\tau \in \mathbb{R}$. For a stepsize of $\tau=0.1$,
+		step-size $\tau \in \mathbb{R}$. For a step-size of $\tau=0.1$,
 		the implicit midpoint rule approximation gives the following
 		phase graph:
 		\begin{figure}[H]
 			\includegraphics[scale=0.6]{harmonic_phase_mid_01}
 		\end{figure}
-		As the error is relatively smal, we also provide the
-		courser phase graph with stepsize $\tau=0.5$ to beter see the
+		As the error is relatively small, we also provide the
+		courser phase graph with step-size $\tau=0.5$ to better see the
 		difference between the solution and the approximation:
 		\begin{figure}[H]
 			\includegraphics[scale=0.6]{harmonic_phase_mid_05}
@@ -259,7 +259,7 @@
 		global error graph has a gradient of $2$, as expected for an
 		approximation of order $2$.
 
-		For the implicit gauss rk method, we use the formula given by
+		For the implicit Gau{\ss} RK-method, we use the formula given by
 		Lemma $4.38$
 		\[
 			R(z) = 1 + z \mathbf{b}^T(I - zA)^{-1} \mathbf{e}
@@ -283,25 +283,25 @@
 		\]
 		which is clearly a reversible rational function.  So, from
 		Theorem $4.28$, we expect an
-		implicit Gauss approximation to be an isometry for any
-		stepsize $\tau \in \mathbb{R}$.
+		implicit Gau{\ss} approximation to be an isometry for any
+		step-size $\tau \in \mathbb{R}$.
 		The first terms of the Taylor expansion of $R(z)$ is
 		\[
 			R(z) = 1 + z^2 + \frac{z^3}{6} + \frac{z^4}{24} +
 				\frac{z^5}{144} - \frac{z^6}{1728} \ldots
 		\]
-		which agrees with the taylor expansion of $e^z$ until the
+		which agrees with the Taylor expansion of $e^z$ until the
 		$\frac{z^4}{24}$ term.  This confirms that this method is of
 		order $4$.
 
-		For a stepsize of $\tau=0.1$,
-		the implicit Gauss approximation gives the following
+		For a step-size of $\tau=0.1$,
+		the implicit Gau{\ss} approximation gives the following
 		phase graph:
 		\begin{figure}[H]
 			\includegraphics[scale=0.6]{harmonic_phase_gaus_01}
 		\end{figure}
 		As the error is relatively small, we also provide the
-		courser phase graph with stepsize $\tau=0.5$ to beter see the
+		courser phase graph with step-size $\tau=0.5$ to better see the
 		difference between the solution and the approximation:
 		\begin{figure}[H]
 			\includegraphics[scale=0.6]{harmonic_phase_gaus_05}
@@ -328,25 +328,123 @@
 		global error graph has a gradient of $4$, as expected for an
 		approximation of order $4$.
 
-		The eighenvalues of $A=\begin{bmatrix}0 & 1 \\ -1 &
-		0\end{bmatrix}$ is $i$ and $-i$. The stability domains of the
-		classical explicit Runge-kutta methods of order $3$ and $4$
+		The eigenvalues of $A=\begin{bmatrix}0 & 1 \\ -1 &
+		0\end{bmatrix}$ are $i$ and $-i$. The stability domains of the
+		classical explicit Runge-Kutta method $4$
 		contains at least the values $\lambda i, \lambda \in [-1.5,
-		1.5]$, therefore our stepsize for the isometric harmonic
+		1.5]$, therefore our step-size for the isometric harmonic
 		oscillator may be taken as large as $\tau = 1.5$
 
-		The phase graph for the classical Runge Kutta Method of order
-		$3$ with stepsize $\tau = 1.5$ give us the following graph.
+		The classical Runge-Kutta Method of order $4$ with
+		step-size $\tau = 1.5$ gives the following phase graph.
 		\begin{figure}[H]
-			\includegraphics[scale=0.6]{harmonic_phase_erk3_15}
+			\includegraphics[scale=0.6]{harmonic_phase_erk4_15}
 		\end{figure}
-		As expected, this is not an isometry, as the vector norm gets
-		smaller with every step.
+		This is clearly not norm preserving, as expected, as classical
+		Runge-Kutta methods have polynomials as their stability
+		function, which is not reversible.  What is interesting, is that
+		both the explicit Runge-Kutta
+		method and the Implicit Gau{\ss} method are of order 4, but the
+		Gau{\ss} method is energy preserving, and has a much smaller
+		Butcher's table.
 \end{itemize}
 
 
 \subsection{}
 \begin{itemize}
 	\item[(a)]
+		The implicit midpoint approximation of the spring pendulum, for
+		a step size of $\tau=0.1$ and a spring constant $k=1$, we get
+		the following graph.
+		\begin{figure}[H]
+			\includegraphics[scale=0.6]{mid_spring_01_1}
+		\end{figure}
+		We approximate with a loose spring constant of $k=0.2$:
+		\begin{figure}[H]
+			\includegraphics[scale=0.6]{mid_spring_01_02}
+		\end{figure}
+		Next we make the spring relatively stiff, by setting $k=10$:
+		\begin{figure}[H]
+			\includegraphics[scale=0.6]{mid_spring_01_10}
+		\end{figure}
+		When setting the spring constant to $k=100$, the
+		discretization becomes apparent.
+		\begin{figure}[H]
+			\includegraphics[scale=0.6]{mid_spring_01_100}
+		\end{figure}
+		So we repeat, but with a much finer discretization of
+		$\tau=0.001$:
+		\begin{figure}[H]
+			\includegraphics[scale=0.6]{mid_spring_0001_100}
+		\end{figure}
+
+		The implicit Gau{\ss} approximation of the spring pendulum, for
+		a step size of $\tau=0.1$ and a spring constant $k=1$, we get
+		the following graph.
+		\begin{figure}[H]
+			\includegraphics[scale=0.6]{gauss_spring_01_1}
+		\end{figure}
+		We approximate with a loose spring constant of $k=0.2$:
+		\begin{figure}[H]
+			\includegraphics[scale=0.6]{gauss_spring_01_02}
+		\end{figure}
+		Next we make the spring relatively stiff, by setting $k=10$:
+		\begin{figure}[H]
+			\includegraphics[scale=0.6]{gauss_spring_01_10}
+		\end{figure}
+		When setting the spring constant to $k=100$, the
+		discretization becomes apparent.
+		\begin{figure}[H]
+			\includegraphics[scale=0.6]{gauss_spring_01_100}
+		\end{figure}
+		So we repeat, but with a much finer discretization of
+		$\tau=0.001$:
+		\begin{figure}[H]
+			\includegraphics[scale=0.6]{gauss_spring_0001_100}
+		\end{figure}
+
+		The classic Runge-Kutta approximation of order 4 of the spring
+		pendulum, for
+		a step size of $\tau=0.1$ and a spring constant $k=1$, gives
+		the following graph.
+		\begin{figure}[H]
+			\includegraphics[scale=0.6]{erk4_spring_01_1}
+		\end{figure}
+		We approximate with a loose spring constant of $k=0.2$:
+		\begin{figure}[H]
+			\includegraphics[scale=0.6]{erk4_spring_01_02}
+		\end{figure}
+		Next we make the spring relatively stiff, by setting $k=10$:
+		\begin{figure}[H]
+			\includegraphics[scale=0.6]{erk4_spring_01_10}
+		\end{figure}
+		When setting the spring constant to $k=100$, the
+		discretization becomes apparent.
+		\begin{figure}[H]
+			\includegraphics[scale=0.6]{erk4_spring_01_100}
+		\end{figure}
+		So we repeat, but with a much finer discretization of
+		$\tau=0.001$:
+		\begin{figure}[H]
+			\includegraphics[scale=0.6]{erk4_spring_0001_100}
+		\end{figure}
+
+		Since a spring pendulum is very similar to a regular pendulum,
+		it is of interest to see what happens when we put the initial
+		value at $(1, 0, 0, 0)$, and make the spring very tense, with
+		$k=1000$.  Using the implicit Gau{\ss} approximation, we get the
+		following graph:
+		\begin{figure}[H]
+			\includegraphics[scale=0.6]{gauss_spring_001_1000_1_0}
+		\end{figure}
+		This very closely approximates the path of a regular pendulum,
+		as we would expect.
+
+		Also of interest, when using as starting position $(x, y) =
+		(1.2, -1)$, we get the following, pleasing path:
+
+		\begin{figure}[H]
+			\includegraphics[scale=0.6]{gauss_spring_001_1_12_1}
+		\end{figure}
 \end{itemize}
 \end{document}
